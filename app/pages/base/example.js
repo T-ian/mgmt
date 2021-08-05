@@ -106,6 +106,17 @@ export default class app extends Component {
       {
         title: '操作',
         key: 'operate',
+        render: (text, record, index) => (
+          <>
+            {record.status == 0 ? (
+              <>
+              <Button style={{ backgroundColor: "#adc0ff" }}>下线</Button>
+              <Button style={{ backgroundColor: "#ffadaf" }}>驳回</Button>
+              </>
+              ) : (
+              <Button style={{ backgroundColor: "#cacaca" }} disabled>已过期</Button>)}
+          </>
+        )
       },
     ];
   }
