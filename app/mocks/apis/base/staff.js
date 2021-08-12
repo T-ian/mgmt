@@ -4,7 +4,7 @@ module.exports = {
     id: 1,
     username: 'admin',
     password: '121212',
-    chineseName: '管理员',
+    chineseName: 'tinshine',
     idcardNo: '000000000000000000',
     policeCode: '000000',
     deptCode: '370200000000',

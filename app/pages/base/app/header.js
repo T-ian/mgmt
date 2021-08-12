@@ -106,7 +106,7 @@ export default class Header extends Component {
     if (sessionStorage.getItem('userinfo')) {
       name = JSON.parse(sessionStorage.getItem('userinfo')).chineseName
     }
-    // console.log(JSON.parse(sessionStorage.getItem('userinfo')))
+    console.log(JSON.parse(sessionStorage.getItem('userinfo')))
     const userCenter = (
       <Menu className="nav-dropmenu">
         <Menu.Item key="1">

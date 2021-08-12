@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 import { Col, Input, Row, Button } from 'antd'
 import { DatePicker } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { hashHistory/* , Link */ } from 'react-router'
 
 
@@ -74,10 +74,18 @@ export default class createAct extends Component {
             <span style={{ color: 'red' }}>*</span>
             <label>活动积分：</label>
           </Col>
-          <Col span={6}>
-            <Button shape="round">
-              <PlusOutlined />新建积分
+        </Row>
+        <Row style={{ marginBottom: '15px' }}>
+          <Col span={2} />
+          <Col span={4} style={{ textAlign: 'right', marginTop: '4px', marginRight: '5px' }}>
+          </Col>
+          <Col>
+            <label>积分名：</label>
+            <Input style={{ width: '100px', marginRight: '20px' }} />
+            <Button shape="round" size='small' type='primary' style={{ marginRight: '20px' }}>
+              保存
             </Button>
+            <PlusCircleOutlined />
           </Col>
           <Col />
         </Row>

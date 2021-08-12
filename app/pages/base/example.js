@@ -32,23 +32,30 @@ export default class app extends Component {
         list: [
           {
             id: 1,
-            name: "7月促活活动1",
-            span: "2021-07-01 ~ 2021-08-01",
+            name: "8月促活活动",
+            span: "2021-08-01 ~ 2021-09-01",
             status: 0,
             username: "tinshine",
           },
           {
             id: 2,
-            name: "7月促活活动2",
+            name: "8月底充值返利活动",
+            span: "2021-08-15 ~ 2021-09-01",
+            status: 1,
+            username: "tinshine",
+          },
+          {
+            id: 3,
+            name: "7月促活活动1",
             span: "2021-07-01 ~ 2021-08-01",
             status: 2,
             username: "tinshine",
           },
           {
-            id: 3,
-            name: "7月促活活动3",
+            id: 4,
+            name: "7月促活活动2",
             span: "2021-07-01 ~ 2021-08-01",
-            status: 1,
+            status: 2,
             username: "tinshine",
           },
         ],
@@ -100,7 +107,12 @@ export default class app extends Component {
         key: 'status',
         width: '10%',
         render: (text, record, index) => (
-          <span>{record.status ? '已过期' : '在线上'}</span>
+          <span>{record.status == 0
+            ? '已过期'
+            : <span>{record.status == 1
+              ? '编辑中'
+              : '在线上'
+            }</span>}</span>
         ),
       },
       {
@@ -110,11 +122,18 @@ export default class app extends Component {
           <>
             {record.status == 0 ? (
               <>
-              <Button style={{ backgroundColor: "#adc0ff" }}>下线</Button>
-              <Button style={{ backgroundColor: "#ffadaf" }}>驳回</Button>
+                <Button style={{ backgroundColor: "#adc0ff" }}>下线</Button>
+                <Button style={{ backgroundColor: "#ffadaf" }}>驳回</Button>
               </>
-              ) : (
-              <Button style={{ backgroundColor: "#cacaca" }} disabled>已过期</Button>)}
+            ) : (
+              <>
+                {record.status == 1 ? (
+                  <Button style={{ backgroundColor: "#b9e0eb" }} >编辑中</Button>
+                ) : (
+                  <Button style={{ backgroundColor: "#cacaca" }} disabled>已过期</Button>
+                )}
+              </>)
+            }
           </>
         )
       },
@@ -135,7 +154,7 @@ export default class app extends Component {
     return (
       <div className="page">
         <Row style={{ minHeight: '50px' }}>
-          <Col style={{ paddingLeft: '10px' }} span={22}>
+          <Col style={{ paddingLeft: '10px' }} span={20}>
             <Form style={{ marginTop: '10px' }} className="flexrow" onSubmit={this.handleSearch}>
               <FormItem>
                 <Input
